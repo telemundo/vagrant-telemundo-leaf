@@ -12,25 +12,24 @@ Download this codebase inside of your `telemundo.com` working copy:
 
 Install the required `ruby` dependencies:
 
-	sudo gem install bundler
-	bundle install --path .bundle/gems
+    bundle install --path .bundle/gems
 
 Verify that all requirements have been met:
 
-	bundle exec rake check
+    bundle exec rake check
 
 If all checks pass, you can then continue with the creation of the VM by running:
 
-	vagrant up
+    vagrant up
 
 Make sure that the following line is inside of the `/etc/hosts` file:
 
-	192.168.56.101 local.msnlatino.telemundo.com
+    192.168.56.101 local.msnlatino.telemundo.com
 
 Finally, visit [http://local.msnlatino.telemundo.com](http://local.msnlatino.telemundo.com) in your browser.
 
 ### Vagrant tips
-Once the provisioning step is completed, you can login into the VM using SSH:
+Once the provisioning step is completed, you can login into the VM via SSH:
 
     $ vagrant ssh
 
