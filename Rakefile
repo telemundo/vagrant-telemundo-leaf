@@ -50,3 +50,9 @@ task :check, :force do |t, args|
     puts "You must have vagrant installed to continue."
   end
 end
+
+desc "Resets the development environment"
+task :reset, :force do |t, args|
+  Kernel.system("vagrant destroy -f")
+  Kernel.system("vagrant up")
+end

@@ -8,6 +8,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "https://dl.dropboxusercontent.com/u/37751086/vagrant/ubuntu-server-10.04-lts-x86_64.box"
 
   config.vm.network "private_network", ip: "192.168.56.101"
+  config.vm.network "forwarded_port", guest: 80, host: 8001
+  config.vm.network "forwarded_port", guest: 9000, host: 9001
 
   config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.synced_folder "../", "/vagrant-nfs", type: "nfs", mount_options: ["rw", "sync", "noatime"]
