@@ -12,9 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 9000, host: 9001
 
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder "../", "/vagrant-nfs", type: "nfs", mount_options: ["rw", "sync", "noatime"]
-
-  config.bindfs.bind_folder "/vagrant-nfs", "/var/www/telemundo", :create_as_user => true, :owner => "vagrant", :group => "vagrant"
+  config.vm.synced_folder "../", "/var/www/telemundo", owner: "vagrant", group: "vagrant"
 
   config.vm.provider "virtualbox" do |vbox|
     vbox.customize ["modifyvm", :id, "--memory", "768"]
