@@ -1,21 +1,21 @@
 # -*- mode: ruby -*-
-# vi: set ft=ruby :
+# vi: set ft=ruby ts=2 sw=2 :
 
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "ubuntu-server-10.04-lts-x86_64"
-  config.vm.box_url = "https://dl.dropboxusercontent.com/u/37751086/vagrant/ubuntu-server-10.04-lts-x86_64.box"
+  config.vm.box = "precise64-telemundo"
+  config.vm.box_url = "https://dl.dropboxusercontent.com/u/37751086/vagrant/precise64-telemundo.box"
 
   config.vm.network "private_network", ip: "192.168.56.101"
   config.vm.network "forwarded_port", guest: 80, host: 8001
   config.vm.network "forwarded_port", guest: 9000, host: 9001
 
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder "../", "/var/www/telemundo", owner: "vagrant", group: "vagrant"
+  config.vm.synced_folder "../", "/var/www", owner: "vagrant", group: "vagrant"
 
   config.vm.provider "virtualbox" do |vbox|
-    vbox.customize ["modifyvm", :id, "--memory", "768"]
+    vbox.name = "local.msnlatino.telemundo.com"
     vbox.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 end
