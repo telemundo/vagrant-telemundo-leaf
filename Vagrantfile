@@ -4,8 +4,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "precise64-telemundo"
-  config.vm.box_url = "https://dl.dropboxusercontent.com/u/37751086/vagrant/precise64-telemundo.box"
+  config.vm.box = "telemundo/precise64-telemundo"
 
   config.vm.network "private_network", ip: "192.168.56.101"
   config.vm.network "forwarded_port", guest: 80, host: 8001
