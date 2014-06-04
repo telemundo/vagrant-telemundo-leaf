@@ -53,6 +53,6 @@ If you only want to run a single command within the VM, you can use:
 
 For instance:
 
-    $ vagrant ssh -- updatime
+    $ vagrant ssh -- uptime
 
 Read the official [documentation](http://docs.vagrantup.com/v2/cli/index.html) to learn more about Vagrant commands.
